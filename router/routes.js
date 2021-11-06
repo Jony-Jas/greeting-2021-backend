@@ -3,6 +3,10 @@ const router = express.Router();
 const Greeting = require("../models/greeting");
 const auth = require("../middleware/auth");
 
+router.get("/", (req, res) => {
+  res.send("Greeting 2021");
+});
+
 router.post("/create", auth, async (req, res) => {
   const greeting = req.body;
   try {
