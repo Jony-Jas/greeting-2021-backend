@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Greeting = require("../models/greeting");
 const auth = require("../middleware/auth");
+const randomstring = require("randomstring");
 
 router.get("/", (req, res) => {
   res.send("Greeting 2021");
@@ -14,7 +15,7 @@ router.post("/create", auth, async (req, res) => {
     if (greet) {
       return res.send(greet);
     }
-    const response = await Greeting.create(greeting);
+    const response = await Greeting.create({...greeting,_id:randomstring.generate(5)});
     res.send(response);
   } catch (err) {
     res.status(500).send(err);

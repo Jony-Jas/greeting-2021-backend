@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
-const randomstring = require("randomstring");
 
 const greetingSchema = new mongoose.Schema(
   {
     _id: {
-      type: "string",
-      default: randomstring.generate(5),
+      type: "string"
     },
     name: {
       type: "string",
