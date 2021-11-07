@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const greetingSchema = new mongoose.Schema(
   {
     _id: {
-      type: "string"
+      type: "string",
     },
     name: {
       type: "string",
@@ -16,8 +16,9 @@ const greetingSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
-    description: {
-      type: "string",
+    views: {
+      type: "number",
+      default: 0,
     },
   },
   { timestamps: true }

@@ -29,6 +29,9 @@ router.get("/:id", auth, async (req, res) => {
     if (!greet) {
       throw new Error(`User not found`);
     }
+    greet.views = greet.views+1;
+    console.log(greet);
+    await greet.save();
     res.send({ greeting: greet.getPublicMessage() });
   } catch (err) {
     res.status(400).send(err);
